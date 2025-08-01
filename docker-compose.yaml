@@ -1,0 +1,24 @@
+services:
+
+  vuetify-project:
+    image: node:alpine
+    container_name: vuetify-project
+    restart: unless-stopped
+    working_dir: /home/node/app
+    command: ["npm", "run", "serve"]
+    env_file:
+      - path: .env
+        required: true
+      - path: .env-local
+        required: false
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - docker
+
+networks:
+  docker:
+    name: docker
+    external: true
