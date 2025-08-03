@@ -2,19 +2,23 @@
   <v-container fill-height>
     <v-row class="min-h-screen" align="center" justify="center">
       <v-col class="text-center">
-        <v-btn @click="counterStore.increment()">Count {{ count }}</v-btn>
+        <v-btn color="primary" @click="goHome">Go Home</v-btn>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script lang="ts" setup>
-useSeoMeta({
-  title: "Counter",
+definePageMeta({
+  layout: "blank",
+  middleware: ["my-middleware"],
 });
 
-const counterStore = useCounterStore();
-const { count } = storeToRefs(counterStore);
+useSeoMeta({
+  title: "Blank",
+});
+
+const goHome = async () => await navigateTo("/");
 </script>
 
 <style lang="sass" scoped></style>

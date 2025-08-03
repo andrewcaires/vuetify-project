@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt --host dev",
+    "build": "nuxt build --dotenv .env.prod",
+    "dev": "nuxt --host dev --dotenv .env.dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -12,11 +12,9 @@
     "typecheck": "nuxt typecheck",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "serve": "node --env-file=.env ./dist/server/index.mjs"
+    "serve": "node --env-file=.env.prod ./dist/server/index.mjs"
   },
   "dependencies": {
-    "@andrewcaires/cookie": "^1.0.5",
-    "@andrewcaires/fetch": "^1.1.0",
     "@andrewcaires/utils.js": "^0.4.10",
     "@nuxt/eslint": "^1.7.1",
     "eslint": "^9.32.0",
@@ -30,8 +28,8 @@
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@pinia/nuxt": "^0.11.2",
     "sass-embedded": "^1.89.2",
-    "typescript": "^5.9.2",
-    "vue-tsc": "^3.0.4",
+    "typescript": "^5.8.3",
+    "vue-tsc": "^3.0.5",
     "vuetify-nuxt-module": "^0.18.7"
   }
 }

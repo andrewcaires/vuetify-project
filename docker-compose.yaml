@@ -7,9 +7,9 @@ services:
     working_dir: /home/node/app
     command: ["npm", "run", "serve"]
     env_file:
-      - path: .env
+      - path: .env.prod
         required: true
-      - path: .env-local
+      - path: .env
         required: false
     volumes:
       - ./:/home/node/app

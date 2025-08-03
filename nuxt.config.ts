@@ -2,6 +2,17 @@ import { join } from "path";
 
 export default defineNuxtConfig({
 
+  runtimeConfig: {
+    apiSecret: "",
+    public: {
+      lang: "",
+      title: "",
+      api_base: "",
+      api_url: "http://localhost:4000",
+      app_url: "",
+    }
+  },
+
   srcDir: "src",
 
   compatibilityDate: "2024-11-01",
@@ -30,6 +41,9 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    server: {
+      allowedHosts: true,
+    },
     ssr: {
       noExternal: ["vuetify"],
     },
